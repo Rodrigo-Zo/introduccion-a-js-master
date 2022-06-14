@@ -50,5 +50,5 @@ for(let i = 0; i < $nodeListNumerico.length; i++){
 document.querySelector('#numero-promedio').innerText = obtenerPromedioDeNumeros(arrayNumerico);
 document.querySelector('#numero-mas-pequenio').innerText = obtenerNumeroMasChico(arrayNumerico);
 document.querySelector('#numero-mas-grande').innerText = obtenerNumeroMasGrande(arrayNumerico);
-document.querySelector('#numero-mas-frecuente').innerText = 'Perro';
+document.querySelector('#numero-mas-frecuente').innerText = 'COMPLETAR';
 
