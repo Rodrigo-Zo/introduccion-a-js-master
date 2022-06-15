@@ -6,35 +6,16 @@
 // al apretar el botón "Calcular tiempo total", debe mostrar en un
 // <strong> pre-creado el tiempo total de los videos.
 
-function convertirNodelistHorasATiempo(nodelist){
-    let horas = 0;
+function convertirNodelistATiempo(nodelist){
+    let tiempo = 0;
     
     for(let i = 0; i<nodelist.length; i++){
-    horas += Number(nodelist[i].value);
+    tiempo += Number(nodelist[i].value);
     }
 
-    return horas;
+    return tiempo;
 }
 
-function convertirNodelistMinutosATiempo(nodelist){
-    let minutos = 0;
-    
-    for(let i = 0; i<nodelist.length; i++){
-    minutos += Number(nodelist[i].value);
-    }
-
-    return minutos;
-}
-
-function convertirNodelistSegundosATiempo(nodelist){
-    let segundos = 0;
-    
-    for(let i = 0; i<nodelist.length; i++){
-    segundos += Number(nodelist[i].value);
-    }
-
-    return segundos;
-}
 
 let $horasNodeList = document.querySelectorAll('#horas');
 let $minutosNodeList = document.querySelectorAll('#minutos');
@@ -42,9 +23,9 @@ let $segundosNodeList = document.querySelectorAll('#segundos');
 
 document.querySelector('#calcular-tiempo-total').onclick = function(){
     
-    let horasTotales = convertirNodelistHorasATiempo($horasNodeList);
-    let minutosTotales = convertirNodelistMinutosATiempo($minutosNodeList);
-    let segundosTotales = convertirNodelistSegundosATiempo($segundosNodeList);
+    let horasTotales = convertirNodelistATiempo($horasNodeList);
+    let minutosTotales = convertirNodelistATiempo($minutosNodeList);
+    let segundosTotales = convertirNodelistATiempo($segundosNodeList);
 
     while(segundosTotales >= 60){
         segundosTotales -= 60;
