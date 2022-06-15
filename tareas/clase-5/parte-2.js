@@ -6,13 +6,12 @@
 // Y va a cambiar el <h1> para decir "Bienvenido, nombreDeUsuario"!
 
 document.querySelector('#ingresar').onclick = function(){
-    const NOMBREUSUARIO = String(document.querySelector('#nombre-usuario').value);
-    const SEGUNDONOMBREUSUARIO = String(document.querySelector('#segundo-nombre-usuario').value);
-    const APELLIDOUSUARIO = String(document.querySelector('#apellido-usuario').value);
-    const EDADUSUARIO = Number(document.querySelector('#edad-usuario').value);
+    const nombreUsuario = String(document.querySelector('#nombre-usuario').value);
+    const segundoNombreUsuario = String(document.querySelector('#segundo-nombre-usuario').value);
+    const apellidoUsuario = String(document.querySelector('#apellido-usuario').value);
+    const edadUsuario = Number(document.querySelector('#edad-usuario').value);
 
-    document.querySelector('#datos-usuario').innerText = `Tus datos: ${NOMBREUSUARIO} ${SEGUNDONOMBREUSUARIO} ${APELLIDOUSUARIO} ${EDADUSUARIO}`;
-    document.querySelector('h1').innerText = `Bienvenido ${NOMBREUSUARIO}`;
+    document.querySelector('#datos-usuario').innerText = `Tus datos: ${nombreUsuario} ${segundoNombreUsuario} ${apellidoUsuario} ${edadUsuario}`;
+    document.querySelector('h1').innerText = `Bienvenido ${nombreUsuario}`;
     return false;
 }
-
