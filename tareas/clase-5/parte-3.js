@@ -17,9 +17,9 @@ function convertirNodelistATiempo(nodelist){
 }
 
 
-let $horasNodeList = document.querySelectorAll('#horas');
-let $minutosNodeList = document.querySelectorAll('#minutos');
-let $segundosNodeList = document.querySelectorAll('#segundos');
+let $horasNodeList = document.querySelectorAll('.horas');
+let $minutosNodeList = document.querySelectorAll('.minutos');
+let $segundosNodeList = document.querySelectorAll('.segundos');
 
 document.querySelector('#calcular-tiempo-total').onclick = function(){
     
