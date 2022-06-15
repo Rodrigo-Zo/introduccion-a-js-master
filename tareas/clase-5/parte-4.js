@@ -35,9 +35,16 @@ function obtenerPromedioDeNumeros(array){
 }
 
 function obtenerNumeroMasRepetido(array){
-
+    let numeroRepetido ;
+    for(let i = 0; i < array.length; i++){
+        for(let j = i + 1; j < array.length; j++){
+            if(array[i]===array[j]){
+            numeroRepetido = array[i];
+            }
+        }
+    }
+    return numeroRepetido;
 }
-
 
 let $nodeListNumerico = (document.querySelectorAll('li'));
 let arrayNumerico = [];
@@ -46,9 +53,7 @@ for(let i = 0; i < $nodeListNumerico.length; i++){
     arrayNumerico[i] = Number($nodeListNumerico[i].innerText);
 }
 
-
 document.querySelector('#numero-promedio').innerText = obtenerPromedioDeNumeros(arrayNumerico);
 document.querySelector('#numero-mas-pequenio').innerText = obtenerNumeroMasChico(arrayNumerico);
 document.querySelector('#numero-mas-grande').innerText = obtenerNumeroMasGrande(arrayNumerico);
-document.querySelector('#numero-mas-frecuente').innerText = 'COMPLETAR';
-
+document.querySelector('#numero-mas-frecuente').innerText = obtenerNumeroMasRepetido(arrayNumerico);
