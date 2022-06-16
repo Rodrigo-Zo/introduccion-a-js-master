@@ -1,30 +1,10 @@
 /*
-TAREA: Empezar preguntando cuánta gente hay en el grupo familiar.
+//TAREA: Empezar preguntando cuánta gente hay en el grupo familiar.
 Crear tantos inputs+labels como gente haya para completar la edad de cada integrante.
 Al hacer click en "calcular", mostrar en un elemento pre-existente la mayor edad, la menor edad y el promedio del grupo familiar.
 
 Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuevamente, borrando los inputs ya creados (investigar cómo en MDN).
 */
-
-function crearFamiliar(NumeroDeFamiliar){
-    nuevoFamiliarLabel = document.createElement('label');
-    nuevoFamiliarInput = document.createElement('input');
-    nuevoFamiliarLabel.textContent = `Ingresa la edad del familiar Nº ${NumeroDeFamiliar + 1}`;
-    nuevoFamiliarInput.type = 'number';
-    nuevoFamiliarInput.placeholder = 'Ingresa el número';
-    nuevoFamiliarInput.className = 'edad-familiar';
-    nuevoFamiliarLabel.appendChild(nuevoFamiliarInput);
-    document.querySelector('#edades-familiares').appendChild(nuevoFamiliarLabel);
-}
-
-function crearBotonCalcular(){
-    nuevoBotonCalcular = document.createElement('button');
-    nuevoBotonCalcular.type = 'button';
-    nuevoBotonCalcular.textContent = 'Calcular';
-    nuevoBotonCalcular.id = 'boton-calcular';
-    document.querySelector('#edades-familiares').appendChild(nuevoBotonCalcular);
-}
-
 function obtenerNumeroMasGrande(array){
     let numeroMasGrande = -Infinity;
     for(let i = 0; i < array.length; i++){
@@ -53,36 +33,65 @@ function obtenerPromedioDeNumeros(array){
     return numerosSumados / array.length ;
 }
 
+function crearIntegrante(numeroIntegrante){
+    let $integrante = document.createElement('div');
+    $integrante.className = 'integrante-familia';
+
+    let $integranteLabel = document.createElement('label');
+    $integranteLabel.textContent = `Completa la edad del integrante Nº ${numeroIntegrante + 1} `;
+
+    let $integranteInput = document.createElement('input');
+    $integranteInput.type = 'number';
+    $integranteInput.className = 'edad-familiar';
+
+    $integranteLabel.appendChild($integranteInput);
+    $integrante.appendChild($integranteLabel);
+    document.querySelector('#integrantes').appendChild($integrante);
+}
+
+function ocultarElemento(nombreElementoParaOcultar){
+    nombreElementoParaOcultar.style.display = 'none';
+}
+
+function desocultarElemento(nombreElementoParaDesocultar){
+    nombreElementoParaDesocultar.style.display = '';
+}
+
+/////////////EVENTOS (ARRIBA FUNCIONES)/////////////
+
+ocultarElemento(document.querySelector('#boton-calcular'));
+ocultarElemento(document.querySelector('#resultados-edades'));
 
 document.querySelector('#boton-continuar').onclick = function(){
-    let numeroDeFamiliares = document.querySelector('#cantidad-familiares').value;
-
-    for(let i = 0; i < numeroDeFamiliares; i++){
-        crearFamiliar(i);
+    
+    for(let i = 0; i < document.querySelector('#cantidad-familiares').value; i++){
+        crearIntegrante(i);
     }
 
-    crearBotonCalcular();
-
-    document.querySelector(`#boton-calcular`).onclick = function(){
-        let nodeListEdadesFamiliares = document.querySelectorAll('.edad-familiar');
-        let arrayEdadesFamiliares = [];
-        
-        for(let i = 0; i < numeroDeFamiliares; i++){
-            arrayEdadesFamiliares[i] = Number(nodeListEdadesFamiliares[i].value);
-        }
-        
-        let numeroMasGrande = obtenerNumeroMasGrande(arrayEdadesFamiliares);
-        let numeroMasChico = obtenerNumeroMasChico(arrayEdadesFamiliares);
-        let promedioDeNumeros = obtenerPromedioDeNumeros(arrayEdadesFamiliares);
-
-
-        document.querySelector(`#resultados-edades`).textContent = `Numero más grande: ${numeroMasGrande}, Numero más chico: ${numeroMasChico}, El promedio de edad es: ${promedioDeNumeros}`;
-
-        return false;
-    }
-
-    return false;
+    desocultarElemento(document.querySelector('#boton-calcular'));
+    ocultarElemento(document.querySelector('#boton-continuar'));
 }
+
+
+document.querySelector('#boton-calcular').onclick = function(){
+    let edadesFamiliaresArray = [];
+
+    for(let i = 0; i < document.querySelector('#cantidad-familiares').value; i++){
+        edadesFamiliaresArray[i] = Number(document.querySelectorAll('.edad-familiar')[i].value);
+    }
+
+    desocultarElemento(document.querySelector('#resultados-edades'));
+
+    document.querySelector('#mayor-edad').textContent = obtenerNumeroMasGrande(edadesFamiliaresArray);
+    document.querySelector('#menor-edad').textContent = obtenerNumeroMasChico(edadesFamiliaresArray);
+    document.querySelector('#promedio-edad').textContent = obtenerPromedioDeNumeros(edadesFamiliaresArray);
+}
+
+
+
+
+
+
 
 
 /*

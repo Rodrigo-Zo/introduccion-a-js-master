@@ -8,28 +8,28 @@
 </head>
 
 <body>
-    <header>
-        <h1>Tarea grupo familiar</h1>
-    </header>
 
     <form>
-        <label for="cantidad-familiares">Cuánta gente hay en el grupo familiar?</label>
-        <input type="number" id="cantidad-familiares" placeholder="Ingresa el número"></input>
-        <button type="button" id="boton-continuar">Continuar</button>
+        <div>
+            <label for="cantidad-familiares">Cuánta gente hay en el grupo familiar?</label>
+            <input id="cantidad-familiares" type="number" placeholder="Ingresa un número">
+            <button type="button" id="boton-continuar">Continuar</button>
+        </div>
+
+        <div id="integrantes">
+        
+        </div>
+
+        <button type="button" id="boton-calcular">Calcular</button>
+
+        <div id="resultados-edades">
+            <p>>La edad mayor es: <strong id="mayor-edad"></strong></p>
+            <p>>La edad menor es: <strong id="menor-edad"></strong></p>
+            <p>>El promedio de edad es: <strong id="promedio-edad"></strong></p>
+        </div>
+
     </form>
     
-    <form id="edades-familiares">
-        
-    </form>
-
-
-
-    <strong id="resultados-edades"></strong>
-
-
-
-
-
     <script src="tarea-clase-6.js"></script>
 </body>
 </html>
