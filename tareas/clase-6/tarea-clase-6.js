@@ -161,5 +161,9 @@ document.querySelector('#boton-calcular-salario').onclick = function(){
             familiaresSalariosArray.push(Number(salariosNodeList[i].value)) ;
         }
     }
-    console.log(familiaresSalariosArray);
+
+    document.querySelector('#mayor-salario-anual').textContent = obtenerNumeroMasGrande(familiaresSalariosArray);
+    document.querySelector('#menor-salario-anual').textContent = obtenerNumeroMasChico(familiaresSalariosArray);
+    document.querySelector('#promedio-salario-anual').textContent = obtenerPromedioDeNumeros(familiaresSalariosArray);
+    document.querySelector('#promedio-salario-mensual').textContent = obtenerPromedioDeNumeros(familiaresSalariosArray) / 12;
 }
