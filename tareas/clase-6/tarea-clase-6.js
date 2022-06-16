@@ -59,22 +59,26 @@ function desocultarElemento(nombreElementoParaDesocultar){
 
 function eliminarIntegrante(){
     let integrantes = document.querySelectorAll('.integrante-familia');
-    for(let i = 0; i < document.querySelector('#cantidad-familiares').value; i++){
+    for(let i = 0; i < cantidadDeFamiliares; i++){
         integrantes[i].remove();
     }
 }
+
+let cantidadDeFamiliares;
+
 
 ocultarElemento(document.querySelector('#boton-calcular'));
 ocultarElemento(document.querySelector('#resultados-edades'));
 
 document.querySelector('#boton-continuar').onclick = function(){
+    cantidadDeFamiliares = document.querySelector('#cantidad-familiares').value;
     
-    if(document.querySelector('#cantidad-familiares').value <= 0 ){
+    if(cantidadDeFamiliares <= 0 ){
         alert('La cantidad de integrantes debe ser mayor a cero');
     }
 
     else{
-        for(let i = 0; i < document.querySelector('#cantidad-familiares').value; i++){
+        for(let i = 0; i < cantidadDeFamiliares; i++){
             crearIntegrante(i);
         }
     
@@ -86,7 +90,7 @@ document.querySelector('#boton-continuar').onclick = function(){
 document.querySelector('#boton-calcular').onclick = function(){
     let edadesFamiliaresArray = [];
 
-    for(let i = 0; i < document.querySelector('#cantidad-familiares').value; i++){
+    for(let i = 0; i < cantidadDeFamiliares; i++){
         edadesFamiliaresArray[i] = Number(document.querySelectorAll('.edad-familiar')[i].value);
     }
 
