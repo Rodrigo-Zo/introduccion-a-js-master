@@ -81,7 +81,6 @@ document.querySelector('#boton-continuar').onclick = function(){
     
         desocultarElemento(document.querySelector('#boton-calcular'));
         ocultarElemento(document.querySelector('#boton-continuar'));
-
     }
 }
 
@@ -94,7 +93,7 @@ document.querySelector('#boton-calcular').onclick = function(){
 
     desocultarElemento(document.querySelector('#resultados-edades'));
     ocultarElemento(document.querySelector('#boton-calcular'));
-
+    
     document.querySelector('#mayor-edad').textContent = obtenerNumeroMasGrande(edadesFamiliaresArray);
     document.querySelector('#menor-edad').textContent = obtenerNumeroMasChico(edadesFamiliaresArray);
     document.querySelector('#promedio-edad').textContent = obtenerPromedioDeNumeros(edadesFamiliaresArray);
@@ -102,9 +101,9 @@ document.querySelector('#boton-calcular').onclick = function(){
 
 document.querySelector('#boton-resetear').onclick = function (){
     desocultarElemento(document.querySelector('#boton-continuar'));
+    ocultarElemento(document.querySelector('#boton-calcular'));
     ocultarElemento(document.querySelector('#resultados-edades'));
     eliminarIntegrante();
-
 }
 
 /*
