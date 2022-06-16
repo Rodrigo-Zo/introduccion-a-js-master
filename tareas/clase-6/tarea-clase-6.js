@@ -104,6 +104,7 @@ document.querySelector('#boton-resetear').onclick = function (){
     ocultarElemento(document.querySelector('#boton-calcular'));
     ocultarElemento(document.querySelector('#resultados-edades'));
     eliminarIntegrante();
+    ocultarElemento(document.querySelector('#trabajos-y-salarios'));
 }
 
 /*
@@ -115,7 +116,6 @@ menor salario anual, salario anual promedio y salario mensual promedio.
 
 Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como 0).
 */
-
 ocultarElemento(document.querySelector('#trabajos-y-salarios'));
 
 function crearSalarioIntegrante(){
@@ -123,7 +123,7 @@ function crearSalarioIntegrante(){
     $salarioIntegrante.className = 'salario-integrante-div';
 
     let $salarioLabel = document.createElement('label');
-    $salarioLabel.textContent = `Completa el salario anual: `;
+    $salarioLabel.textContent = `Completa el salario anual del integrante: `;
 
     let $salarioInput = document.createElement('input');
     $salarioInput.type = 'number';
@@ -145,4 +145,18 @@ document.querySelector('#boton-agregar').onclick = function(){
 
 document.querySelector('#boton-quitar').onclick = function(){
     eliminarSalarioIntegrante();
+}
+
+//boton calcular > refleja en el strong los resultados.
+//Si hay inputs vacios, no deben ser contados como 0 y deben ser ignorados.
+
+document.querySelector('#boton-calcular-salario').onclick = function(){
+    let familiaresSalariosArray = [];
+
+    for(let i = 0; i < document.querySelectorAll('.salario-integrante').length; i++){
+        familiaresSalariosArray[i] = Number(document.querySelectorAll('.salario-integrante')[i].value);
+    }
+
+    console.log(familiaresSalariosArray);
+
 }
