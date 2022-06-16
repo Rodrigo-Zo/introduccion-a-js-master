@@ -149,8 +149,6 @@ document.querySelector('#boton-quitar').onclick = function(){
     eliminarSalarioIntegrante();
 }
 
-//Si hay inputs vacios, no deben ser contados como 0 y deben ser ignorados.
-
 document.querySelector('#boton-calcular-salario').onclick = function(){
     let salariosNodeList = document.querySelectorAll('.salario-integrante');
     let familiaresSalariosArray = [];
