@@ -64,7 +64,6 @@ function eliminarIntegrante(){
     }
 }
 
-
 ocultarElemento(document.querySelector('#boton-calcular'));
 ocultarElemento(document.querySelector('#resultados-edades'));
 
@@ -93,6 +92,7 @@ document.querySelector('#boton-calcular').onclick = function(){
 
     desocultarElemento(document.querySelector('#resultados-edades'));
     ocultarElemento(document.querySelector('#boton-calcular'));
+    desocultarElemento(document.querySelector('#trabajos-y-salarios'));
     
     document.querySelector('#mayor-edad').textContent = obtenerNumeroMasGrande(edadesFamiliaresArray);
     document.querySelector('#menor-edad').textContent = obtenerNumeroMasChico(edadesFamiliaresArray);
@@ -108,8 +108,41 @@ document.querySelector('#boton-resetear').onclick = function (){
 
 /*
 TAREA:
-Crear una interfaz que permita agregar ó quitar (botones agregar y quitar) inputs+labels para completar el salario anual de cada integrante de la familia que trabaje.
-Al hacer click en "calcular", mostrar en un elemento pre-existente el mayor salario anual, menor salario anual, salario anual promedio y salario mensual promedio.
+Crear una interfaz que permita agregar ó quitar (botones agregar y quitar) inputs+labels para completar 
+el salario anual de cada integrante de la familia que trabaje.
+Al hacer click en "calcular", mostrar en un elemento pre-existente el mayor salario anual,
+menor salario anual, salario anual promedio y salario mensual promedio.
 
 Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como 0).
 */
+
+ocultarElemento(document.querySelector('#trabajos-y-salarios'));
+
+function crearSalarioIntegrante(){
+    let $salarioIntegrante = document.createElement('div');
+    $salarioIntegrante.className = 'salario-integrante-div';
+
+    let $salarioLabel = document.createElement('label');
+    $salarioLabel.textContent = `Completa el salario anual: `;
+
+    let $salarioInput = document.createElement('input');
+    $salarioInput.type = 'number';
+    $salarioInput.className = 'salario-integrante';
+    $salarioInput.placeholder = 'Ingresa el número';
+
+    $salarioLabel.appendChild($salarioInput);
+    $salarioIntegrante.appendChild($salarioLabel);
+    document.querySelector('#trabajo-integrante').appendChild($salarioIntegrante);
+}
+
+function eliminarSalarioIntegrante(){
+    document.querySelector('.salario-integrante-div').remove();
+}
+
+document.querySelector('#boton-agregar').onclick = function(){
+    crearSalarioIntegrante();
+}
+
+document.querySelector('#boton-quitar').onclick = function(){
+    eliminarSalarioIntegrante();
+}
