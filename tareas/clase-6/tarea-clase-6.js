@@ -65,8 +65,6 @@ function eliminarIntegrante(){
 }
 
 let cantidadDeFamiliares;
-
-
 ocultarElemento(document.querySelector('#boton-calcular'));
 ocultarElemento(document.querySelector('#resultados-edades'));
 
@@ -151,16 +149,19 @@ document.querySelector('#boton-quitar').onclick = function(){
     eliminarSalarioIntegrante();
 }
 
-//boton calcular > refleja en el strong los resultados.
 //Si hay inputs vacios, no deben ser contados como 0 y deben ser ignorados.
 
 document.querySelector('#boton-calcular-salario').onclick = function(){
+    let salariosNodeList = document.querySelectorAll('.salario-integrante');
     let familiaresSalariosArray = [];
 
-    for(let i = 0; i < document.querySelectorAll('.salario-integrante').length; i++){
-        familiaresSalariosArray[i] = Number(document.querySelectorAll('.salario-integrante')[i].value);
+    for(let i = 0; i < salariosNodeList.length; i++){
+        
+        if(String(salariosNodeList[i].value).length === 0){
+        }
+        else{
+            familiaresSalariosArray.push(Number(salariosNodeList[i].value)) ;
+        }
     }
-
     console.log(familiaresSalariosArray);
-
 }
