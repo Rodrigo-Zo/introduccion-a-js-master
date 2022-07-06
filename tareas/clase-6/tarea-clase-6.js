@@ -57,11 +57,9 @@ function eliminarIntegrante(){
     }
 }
 
-let cantidadDeFamiliares;
-ocultarElemento(document.querySelector('#boton-calcular'));
-ocultarElemento(document.querySelector('#resultados-edades'));
 
-document.querySelector('#boton-continuar').onclick = function(){
+
+$botonContinuar.onclick = function(){
     cantidadDeFamiliares = document.querySelector('#cantidad-familiares').value;
     
     if(cantidadDeFamiliares <= 0 ){
@@ -73,21 +71,22 @@ document.querySelector('#boton-continuar').onclick = function(){
             crearIntegrante(i);
         }
     
-        desocultarElemento(document.querySelector('#boton-calcular'));
-        ocultarElemento(document.querySelector('#boton-continuar'));
+        desocultarElemento($botonCalcular);
+        ocultarElemento($botonContinuar);
     }
 }
 
-document.querySelector('#boton-calcular').onclick = function(){
+$botonCalcular.onclick = function(){
+    let $edadesFamiliares = document.querySelectorAll('.edad-familiar');
     let edadesFamiliaresArray = [];
 
     for(let i = 0; i < cantidadDeFamiliares; i++){
-        edadesFamiliaresArray[i] = Number(document.querySelectorAll('.edad-familiar')[i].value);
+        edadesFamiliaresArray[i] = Number($edadesFamiliares[i].value);
     }
 
-    desocultarElemento(document.querySelector('#resultados-edades'));
-    ocultarElemento(document.querySelector('#boton-calcular'));
-    desocultarElemento(document.querySelector('#trabajos-y-salarios'));
+    desocultarElemento($resultadosEdades);
+    ocultarElemento($botonCalcular);
+    desocultarElemento($trabajosYSalarios);
     
     document.querySelector('#mayor-edad').textContent = obtenerNumeroMasGrande(edadesFamiliaresArray);
     document.querySelector('#menor-edad').textContent = obtenerNumeroMasChico(edadesFamiliaresArray);
@@ -123,15 +122,15 @@ function eliminarSalarioIntegrante(){
     document.querySelector('.salario-integrante-div').remove();
 }
 
-document.querySelector('#boton-agregar').onclick = function(){
+$botonAgregar.onclick = function(){
     crearSalarioIntegrante();
 }
 
-document.querySelector('#boton-quitar').onclick = function(){
+$botonQuitar.onclick = function(){
     eliminarSalarioIntegrante();
 }
 
-document.querySelector('#boton-calcular-salario').onclick = function(){
+$botonCalcularSalario.onclick = function(){
     let salariosNodeList = document.querySelectorAll('.salario-integrante');
     let familiaresSalariosArray = [];
 
@@ -149,3 +148,17 @@ document.querySelector('#boton-calcular-salario').onclick = function(){
     document.querySelector('#promedio-salario-anual').textContent = obtenerPromedioDeNumeros(familiaresSalariosArray);
     document.querySelector('#promedio-salario-mensual').textContent = obtenerPromedioDeNumeros(familiaresSalariosArray) / 12;
 }
+
+let cantidadDeFamiliares;
+let $resultadosEdades = document.querySelector('#resultados-edades');
+let $trabajosYSalarios = document.querySelector('#trabajos-y-salarios');
+
+$botonContinuar = document.querySelector('#boton-continuar');
+$botonCalcular = document.querySelector('#boton-calcular')
+$botonAgregar = document.querySelector('#boton-agregar');
+$botonQuitar = document.querySelector('#boton-quitar');
+$botonCalcularSalario = document.querySelector('#boton-calcular-salario');
+
+ocultarElemento($trabajosYSalarios);
+ocultarElemento($botonCalcular);
+ocultarElemento($resultadosEdades);
