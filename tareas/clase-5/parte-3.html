@@ -5,77 +5,136 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Clase 5 parte 3</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
-        div {
-          margin-bottom: 20px;
+        body{
+            background-image: linear-gradient(to bottom right, #176FEB , #FF80FF);
         }
-        label {
-          display: inline-block;
+
+        h1{
+            text-align:center;
         }
-      </style>
-  
+
+        .container{
+           text-align: center;
+           margin-bottom: 10px;
+        }
+
+        #datos-finales{
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <header>
-        <h1>Contador de tiempo videos /r argentinaprograma:</h1>
+        <h1 class="display-6">Contador de tiempo videos /r argentinaprograma:</h1>
     </header>
-
     <form>
-        <div class="video">
-            <label for="horas">Horas video 1:</label>
-            <input type="number" class="horas">
-            <label for="minutos">Minutos video 1:</label>
-             <input type="number" class="minutos">
-            <label for="segundos">Segundos video 1:</label>
-            <input type="number" class="segundos"> 
+        <div class="container">
+            <div class="row">
+                <div class="video"></div>
+              <div class="col-4">
+                <label for="horas">Horas video 1:</label>
+                <input type="number" class="horas">
+              </div>
+              <div class="col-4">
+                <label for="minutos">Minutos:</label>
+                <input type="number" class="minutos">
+              </div>
+              <div class="col-4">
+                <label for="segundos">Segundos:</label>
+                <input type="number" class="segundos">
+              </div>
+                </div>
+            </div>
         </div>
-
-        <div class="video">
-            <label for="horas">Horas video 2:</label>
-             <input type="number" class="horas">
-             <label for="minutos">Minutos video 2:</label>
-             <input type="number" class="minutos">
-             <label for="segundos">Segundos video 2:</label>
-             <input type="number" class="segundos"> 
+        <div class="container">
+            <div class="row">
+                <div class="video"></div>
+              <div class="col-4">
+                <label for="horas">Horas video 2:</label>
+                <input type="number" class="horas">
+              </div>
+              <div class="col-4">
+                <label for="minutos">Minutos:</label>
+                <input type="number" class="minutos">
+              </div>
+              <div class="col-4">
+                <label for="segundos">Segundos:</label>
+                <input type="number" class="segundos">
+              </div>
+                </div>
+            </div>
         </div>
-
-        <div class="video">
-            <label for="horas">Horas video 3:</label>
-            <input type="number" class="horas">
-            <label for="minutos">Minutos video 3:</label>
-            <input type="number" class="minutos">
-            <label for="segundos">Segundos video 3:</label>
-            <input type="number" class="segundos">
+        <div class="container">
+            <div class="row">
+                <div class="video"></div>
+              <div class="col-4">
+                <label for="horas">Horas video 3:</label>
+                <input type="number" class="horas">
+              </div>
+              <div class="col-4">
+                <label for="minutos">Minutos:</label>
+                <input type="number" class="minutos">
+              </div>
+              <div class="col-4">
+                <label for="segundos">Segundos:</label>
+                <input type="number" class="segundos">
+              </div>
+                </div>
+            </div>
         </div>
-
-        <div class="video">
-            <label for="horas">Horas video 4:</label>
-            <input type="number" class="horas">
-            <label for="minutos">Minutos video 4:</label>
-            <input type="number" class="minutos">
-            <label for="segundos">Segundos video 4:</label>
-            <input type="number" class="segundos">
+        <div class="container">
+            <div class="row">
+                <div class="video"></div>
+              <div class="col-4">
+                <label for="horas">Horas video 4:</label>
+                <input type="number" class="horas">
+              </div>
+              <div class="col-4">
+                <label for="minutos">Minutos:</label>
+                <input type="number" class="minutos">
+              </div>
+              <div class="col-4">
+                <label for="segundos">Segundos:</label>
+                <input type="number" class="segundos">
+              </div>
+                </div>
+            </div>
         </div>
-
-        <div class="video">
-            <label for="horas">Horas video 5:</label>
-            <input type="number" class="horas">
-            <label for="minutos">Minutos video 5:</label>
-            <input type="number" class="minutos">
-            <label for="segundos">Segundos video 5:</label>
-            <input type="number" class="segundos">
+        <div class="container">
+            <div class="row">
+                <div class="video"></div>
+              <div class="col-4">
+                <label for="horas">Horas video 5:</label>
+                <input type="number" class="horas">
+              </div>
+              <div class="col-4">
+                <label for="minutos">Minutos:</label>
+                <input type="number" class="minutos">
+              </div>
+              <div class="col-4">
+                <label for="segundos">Segundos:</label>
+                <input type="number" class="segundos">
+              </div>
+                </div>
+            </div>
         </div>
-
-        <button type="button" id="calcular-tiempo-total">Calcular Tiempo total</button>
-
+        <div class="container" id="datos-finales">
+            <div class="row">
+              <div class="col-3">
+                <button type="button" class="btn btn-dark" id="calcular-tiempo-total">Calcular Tiempo</button>
+              </div>
+              <div class="col-4">
+                <p>Los videos suman un total de:</p>
+              </div>
+              <div class="col-5">
+                <strong id="tiempo-total"></strong>
+              </div>
+            </div>
+        </div>
     </form>
-   
-    <div>
-        <p>Los videos tienen un tiempo total de:</p>
-        <strong id="tiempo-total"></strong>
-    </div>
-
     <script src="parte-3.js"></script>
 </body>
 </html>

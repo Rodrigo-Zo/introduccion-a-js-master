@@ -3,34 +3,79 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Clase 5 tarea parte 2</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
+<style>
+    body{
+        background-color: #CCE1FF;
+        margin-left: 20px;
+    }
+    
+    h1{
+        color: #E07F4F;
+    }
+
+    input{
+        background-color: #F5F9FF;
+    }
+
+    label{
+        color: #E07F4F;
+    }
+
+    strong{
+        color: #E07F4F;
+    }
+
+    #ingresar{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+</style>
 
 <body>
     <header>
-        <h1>Bienvenido</h1>
+        <h1 class="display-1">Bienvenido</h1>
     </header>
     
     <main>
         <form>
-            <label for="nombre-usuario">Ingresa tu nombre:</label>
-            <input type="text" id="nombre-usuario" placeholder="Ej: Roberto">
-            <label for="segundo-nombre-usuario">Ingresa tu segundo nombre:</label>
-            <input type="text" id="segundo-nombre-usuario" placeholder="Ej: Fedrico">
-            <label for="apellido-usuario">Ingresa tu apellido:</label>
-            <input type="text" id="apellido-usuario" placeholder="Ej: Diaz">
-            <label for="edad-usuario">Ingresa tu edad:</label>
-            <input type="number" id="edad-usuario" placeholder="Ej: 23">
-            <button type="button" id="ingresar">Ingresar</button>
+            <div class="row">
+                <div class="col-3">
+                    <label for="nombre-usuario">Ingresa tu nombre:</label>
+                    <input type="text" class="form-control" id="nombre-usuario" placeholder="Ej: Roberto">
+                </div>
+                <div class="col-3">
+                    <label for="segundo-nombre-usuario">Ingresa tu segundo nombre:</label>
+                    <input type="text" class="form-control" id="segundo-nombre-usuario" placeholder="Ej: Fedrico">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <label for="apellido-usuario">Ingresa tu apellido:</label>
+                    <input type="text" class="form-control" id="apellido-usuario" placeholder="Ej: Diaz">
+                </div>
+                <div class="col-3">
+                    <label for="edad-usuario">Ingresa tu edad:</label>
+                    <input type="number" class="form-control" id="edad-usuario" placeholder="Ej: 23">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="button" id="ingresar" class="btn btn-success">Ingresar</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    <p><strong id="datos-usuario"></strong></p>
+                </div>
+            </div>
         </form>
-
-        <div>
-            <p><strong id="datos-usuario"></strong></p>
-        </div>
     </main>
-
     <script src="parte-2.js"></script>
 </body>
 </html>
-
