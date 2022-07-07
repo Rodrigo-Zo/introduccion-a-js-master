@@ -1,3 +1,10 @@
+/*
+TAREA: Empezar preguntando cuánta gente hay en el grupo familiar.
+Crear tantos inputs+labels como gente haya para completar la edad de cada integrante.
+Al hacer click en "calcular", mostrar en un elemento pre-existente la mayor edad, la menor edad y el promedio del grupo familiar.
+
+Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuevamente, borrando los inputs ya creados (investigar cómo en MDN).
+*/
 function obtenerNumeroMasGrande(array){
     let numeroMasGrande = -Infinity;
     for(let i = 0; i < array.length; i++){
@@ -57,9 +64,11 @@ function eliminarIntegrante(){
     }
 }
 
+let cantidadDeFamiliares;
+ocultarElemento(document.querySelector('#boton-calcular'));
+ocultarElemento(document.querySelector('#resultados-edades'));
 
-
-$botonContinuar.onclick = function(){
+document.querySelector('#boton-continuar').onclick = function(){
     cantidadDeFamiliares = document.querySelector('#cantidad-familiares').value;
     
     if(cantidadDeFamiliares <= 0 ){
@@ -71,22 +80,21 @@ $botonContinuar.onclick = function(){
             crearIntegrante(i);
         }
     
-        desocultarElemento($botonCalcular);
-        ocultarElemento($botonContinuar);
+        desocultarElemento(document.querySelector('#boton-calcular'));
+        ocultarElemento(document.querySelector('#boton-continuar'));
     }
 }
 
-$botonCalcular.onclick = function(){
-    let $edadesFamiliares = document.querySelectorAll('.edad-familiar');
+document.querySelector('#boton-calcular').onclick = function(){
     let edadesFamiliaresArray = [];
 
     for(let i = 0; i < cantidadDeFamiliares; i++){
-        edadesFamiliaresArray[i] = Number($edadesFamiliares[i].value);
+        edadesFamiliaresArray[i] = Number(document.querySelectorAll('.edad-familiar')[i].value);
     }
 
-    desocultarElemento($resultadosEdades);
-    ocultarElemento($botonCalcular);
-    desocultarElemento($trabajosYSalarios);
+    desocultarElemento(document.querySelector('#resultados-edades'));
+    ocultarElemento(document.querySelector('#boton-calcular'));
+    desocultarElemento(document.querySelector('#trabajos-y-salarios'));
     
     document.querySelector('#mayor-edad').textContent = obtenerNumeroMasGrande(edadesFamiliaresArray);
     document.querySelector('#menor-edad').textContent = obtenerNumeroMasChico(edadesFamiliaresArray);
@@ -100,6 +108,17 @@ document.querySelector('#boton-resetear').onclick = function (){
     eliminarIntegrante();
     ocultarElemento(document.querySelector('#trabajos-y-salarios'));
 }
+
+/*
+TAREA:
+Crear una interfaz que permita agregar ó quitar (botones agregar y quitar) inputs+labels para completar 
+el salario anual de cada integrante de la familia que trabaje.
+Al hacer click en "calcular", mostrar en un elemento pre-existente el mayor salario anual,
+menor salario anual, salario anual promedio y salario mensual promedio.
+
+Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como 0).
+*/
+ocultarElemento(document.querySelector('#trabajos-y-salarios'));
 
 function crearSalarioIntegrante(){
     let $salarioIntegrante = document.createElement('div');
@@ -122,15 +141,15 @@ function eliminarSalarioIntegrante(){
     document.querySelector('.salario-integrante-div').remove();
 }
 
-$botonAgregar.onclick = function(){
+document.querySelector('#boton-agregar').onclick = function(){
     crearSalarioIntegrante();
 }
 
-$botonQuitar.onclick = function(){
+document.querySelector('#boton-quitar').onclick = function(){
     eliminarSalarioIntegrante();
 }
 
-$botonCalcularSalario.onclick = function(){
+document.querySelector('#boton-calcular-salario').onclick = function(){
     let salariosNodeList = document.querySelectorAll('.salario-integrante');
     let familiaresSalariosArray = [];
 
@@ -148,17 +167,3 @@ $botonCalcularSalario.onclick = function(){
     document.querySelector('#promedio-salario-anual').textContent = obtenerPromedioDeNumeros(familiaresSalariosArray);
     document.querySelector('#promedio-salario-mensual').textContent = obtenerPromedioDeNumeros(familiaresSalariosArray) / 12;
 }
-
-let cantidadDeFamiliares;
-let $resultadosEdades = document.querySelector('#resultados-edades');
-let $trabajosYSalarios = document.querySelector('#trabajos-y-salarios');
-
-$botonContinuar = document.querySelector('#boton-continuar');
-$botonCalcular = document.querySelector('#boton-calcular')
-$botonAgregar = document.querySelector('#boton-agregar');
-$botonQuitar = document.querySelector('#boton-quitar');
-$botonCalcularSalario = document.querySelector('#boton-calcular-salario');
-
-ocultarElemento($trabajosYSalarios);
-ocultarElemento($botonCalcular);
-ocultarElemento($resultadosEdades);
