@@ -8,20 +8,45 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Clase 5</title>
 </head>
+<style>
+body{
+    background-color: #8FA3BF;
+}
+
+.container{
+    margin-top: 100px;
+}
+
+#salarios-placeholders{
+    margin-bottom: 20px;
+}
+
+
+</style>
 <body>
-    <form>
-        <label for="salario-anual">Salario anual:</label>
-        <input type="number" id="salario-anual" placeholder="Ej: 3500">
-        <label for="salario-mensual">Salario mensual:</label>
-        <input id="salario-mensual" type="number" disabled>
-        <button type='button' id="calcular-salario-mensual">Calcular</button>
-        <label for="resetear-datos">Click en el boton para resetear</label>
-        <button type="reset" id="resetear-datos">Limpiar</button>
-    </form>
-
-
-
-
+    <div class="container">
+        <form>
+            <div class="row" id="salarios-placeholders">
+                <div class="col">
+                    <label for="salario-anual" class="form-label">Salario anual:</label>
+                    <input type="number" id="salario-anual" placeholder="Ej: 3500" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="salario-mensual" class="form-label">Salario mensual:</label>
+                    <input id="salario-mensual" type="number" class="form-control" disabled>
+                  </div>
+            </div>
+      
+            <div class="row">
+                  <div class="col">
+                    <button type='button' class="btn btn-dark" id="calcular-salario-mensual">Calcular</button>
+                  </div>
+                  <div class="col">
+                    <label for="resetear-datos">Click en el boton para resetear</label>
+                    <button type="reset" class="btn btn-dark" id="resetear-datos">Limpiar</button>
+            </div>
+        </form>
+    </div>
     <script src="tarea-clase-5.js"></script>
 </body>
 </html>
