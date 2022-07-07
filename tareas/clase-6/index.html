@@ -5,45 +5,127 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Clase 6 tarea</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: #7C899C;
+        }
+        form{
+            margin-top: 10px;
+        }
+
+        #label-cantidad-familiares{
+            color: black;
+            font-size: large;
+        }
+
+        #calculadora-salarios{
+            color: black;
+            font-size: large;
+            margin-bottom: 20px;
+        }
+
+        #resultados-edades{
+            margin-top: 5px;
+        }
+
+        #resultados-salariales{
+            margin-top: 5px;
+        }
+
+        .integrante-familia{
+            margin-bottom: 5px;
+        }
+
+        #integrantes{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .salario-integrante-div{
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+    </style>
 </head>
 
 <body>
-
     <form>
-        <div>
-            <label for="cantidad-familiares">Cuánta gente hay en el grupo familiar?</label>
-            <input id="cantidad-familiares" type="number" placeholder="Ingresa un número">
-            <button type="button" id="boton-continuar">Continuar</button>
-            <button type="reset" id="boton-resetear">Comenzar nuevamente</button>
-        </div>
-
-        <div id="integrantes">
-        
-        </div>
-
-        <button type="button" id="boton-calcular">Calcular</button>
-
-        <div id="resultados-edades">
-            <p>>La edad mayor es: <strong id="mayor-edad"></strong></p>
-            <p>>La edad menor es: <strong id="menor-edad"></strong></p>
-            <p>>El promedio de edad es: <strong id="promedio-edad"></strong></p>
-        </div>
-
-        <div id="trabajos-y-salarios">
-            <label for="boton-agregar">Calculadora de salarios:</label>
-            <button type="button" id="boton-agregar">Agregar</button>
-            <button type="button" id="boton-quitar">Quitar</button>
-            
-            <div id="trabajo-integrante">
-            
+        <div class="container">
+            <div class="row">
+              <div class="col-5">
+                <label for="cantidad-familiares" id="label-cantidad-familiares">Ingresa el # de familiares</label>
+              </div>
+              <div class="col-3">
+                <input id="cantidad-familiares" class="form-control" type="number" placeholder="Ingresa un #">
+              </div>
+              <div class="col-2">
+                <button type="button" class="btn btn-primary" id="boton-continuar">Continuar</button>
+              </div>
+              <div class="col-2">
+                <button type="reset" class="btn btn-secondary" id="boton-resetear">Recomenzar</button>
+              </div>
             </div>
-            
-            <button type="button" id="boton-calcular-salario">Calcular Salario</button>
-            
-            <p>>El mayor salario anual es: <strong id="mayor-salario-anual"></strong></p>
-            <p>>El menor salario anual es: <strong id="menor-salario-anual"></strong></p>
-            <p>>El salario anual promedio es: <strong id="promedio-salario-anual"></strong></p>
-            <p>>El salario mensual promedio es: <strong id="promedio-salario-mensual"></strong></p>
+        
+            <div class="row">
+                <div class="col">
+                    <div id="integrantes">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="boton-calcular">Calcular</button>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col">
+                    <div id="resultados-edades">
+                        <p>>La edad mayor es: <strong id="mayor-edad"></strong></p>
+                        <p>>La edad menor es: <strong id="menor-edad"></strong></p>
+                        <p>>El promedio de edad es: <strong id="promedio-edad"></strong></p>
+                    </div>
+                </div>
+            </div>
+        
+            <div id="trabajos-y-salarios">
+        
+                <div class="row">
+                    <div class="col-4">
+                        <label for="boton-agregar" id="calculadora-salarios">Calculadora de salarios:</label>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-success" id="boton-agregar">Agregar</button>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-danger" id="boton-quitar">Quitar</button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-warning" id="boton-calcular-salario">Calcular Salario</button>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col">
+                        <div id="trabajo-integrante">
+                
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row" id="resultados-salariales">
+                    <div class="col">
+                        <p>>El mayor salario anual es: <strong id="mayor-salario-anual"></strong></p>
+                        <p>>El menor salario anual es: <strong id="menor-salario-anual"></strong></p>
+                        <p>>El salario anual promedio es: <strong id="promedio-salario-anual"></strong></p>
+                        <p>>El salario mensual promedio es: <strong id="promedio-salario-mensual"></strong></p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </form>
     
