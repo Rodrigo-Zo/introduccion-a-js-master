@@ -65,17 +65,17 @@ for(let i = 1; i<=50; i++){
 */
 // Calcular el promedio de todos los números en un array de números. (y ponerlo en una función)
 // ej.: calcularPromedio([10,5,4,2,8])
-
-
+/*
 let arrayNumerico = [1000, 5, 4, 2, 8];
 
 function calcularPromedio(array){
     let promedio = 0;
-    for(let i = 0; i<array.length; i++){
-        promedio = promedio + array[i];
+    for(let i = 0; i<arrayNumerico.length; i++){
+        promedio = promedio + arrayNumerico[i];
     }
 
-    return promedio / array.length;
+    return promedio / arrayNumerico.length;
 }
 
 console.log(`El promedio de tu array es: ${calcularPromedio(arrayNumerico)}`);
+*/
