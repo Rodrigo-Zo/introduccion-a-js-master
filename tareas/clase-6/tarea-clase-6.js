@@ -42,7 +42,8 @@ function crearIntegrante(numeroIntegrante){
 
     let $integranteInput = document.createElement('input');
     $integranteInput.type = 'number';
-    $integranteInput.className = 'edad-familiar';
+    $integranteInput.className = "form-control";
+
 
     $integranteLabel.appendChild($integranteInput);
     $integrante.appendChild($integranteLabel);
@@ -89,7 +90,7 @@ document.querySelector('#boton-calcular').onclick = function(){
     let edadesFamiliaresArray = [];
 
     for(let i = 0; i < cantidadDeFamiliares; i++){
-        edadesFamiliaresArray[i] = Number(document.querySelectorAll('.edad-familiar')[i].value);
+        edadesFamiliaresArray[i] = Number(document.querySelectorAll("#integrantes .form-control")[i].value);
     }
 
     desocultarElemento(document.querySelector('#resultados-edades'));
@@ -129,9 +130,9 @@ function crearSalarioIntegrante(){
 
     let $salarioInput = document.createElement('input');
     $salarioInput.type = 'number';
-    $salarioInput.className = 'salario-integrante';
+    $salarioInput.className = "form-control";
     $salarioInput.placeholder = 'Ingresa el número';
-
+    
     $salarioLabel.appendChild($salarioInput);
     $salarioIntegrante.appendChild($salarioLabel);
     document.querySelector('#trabajo-integrante').appendChild($salarioIntegrante);
@@ -150,7 +151,7 @@ document.querySelector('#boton-quitar').onclick = function(){
 }
 
 document.querySelector('#boton-calcular-salario').onclick = function(){
-    let salariosNodeList = document.querySelectorAll('.salario-integrante');
+    let salariosNodeList = document.querySelectorAll('#trabajo-integrante .form-control');
     let familiaresSalariosArray = [];
 
     for(let i = 0; i < salariosNodeList.length; i++){
