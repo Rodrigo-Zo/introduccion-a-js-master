@@ -48,10 +48,14 @@ function obtenerNumeroMasRepetido(array){
 
 let $nodeListNumerico = (document.querySelectorAll('li'));
 let arrayNumerico = [];
-
+/*
 for(let i = 0; i < $nodeListNumerico.length; i++){
     arrayNumerico[i] = Number($nodeListNumerico[i].innerText);
 }
+*/
+$nodeListNumerico.forEach(function(nodeListNumero){
+    arrayNumerico.push(Number(nodeListNumero.innerText));
+});
 
 document.querySelector('#numero-promedio').innerText = obtenerPromedioDeNumeros(arrayNumerico);
 document.querySelector('#numero-mas-pequenio').innerText = obtenerNumeroMasChico(arrayNumerico);
